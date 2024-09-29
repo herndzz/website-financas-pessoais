@@ -1,0 +1,19 @@
+#last-registrations {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.registration-box {
+    border: 1px solid black;
+    margin: .6em 0;
+    max-width: 90%;
+}
+
+.form-registration {
+    
+}
+
+.form-registration div {
+    display: grid;
+    margin-bottom: .5em;
+}

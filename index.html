@@ -17,13 +17,13 @@
   </div>
   <div class="form-registration">
     <div>
-      <label for="operation-type">Tipo de Operação:</label>
-      <select name="operation-type" id="operation-type" onchange="console.log(this.value)">
-        <option value="entry">Entrada</option>
-        <option value="exit">Saída</option>
-      </select>
-    </div>
-    <div>
+      <div>
+        <label for="operation-type">Tipo de Operação:</label>
+        <select name="operation-type" id="operation-type" onchange="console.log(this.value)">
+          <option value="entry">Entrada</option>
+          <option value="exit">Saída</option>
+        </select>
+      </div>
       <label for="name-registration">Nome do Registro:</label>
       <input type="text" name="name-registration" id="name-registration" maxlength="30">
     </div>
@@ -38,11 +38,11 @@
     <button id="btn-form">Ok</button>
   </div>
   <div id="last-registrations">
+    <h2 style="color: green;">Entradas</h2>
+    <h2 style="color: red;">Saídas</h2>
     <div id="entry-registration">
-      <h2>Entradas</h2>
     </div>
     <div id="exit-registration">
-      <h2>Saídas</h2>
     </div>
   </div>
 </body>

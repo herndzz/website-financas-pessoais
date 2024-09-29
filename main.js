@@ -21,7 +21,7 @@ btnForm.addEventListener("click", () => {
     nameRegistration.value = "";
     valueResgistration.value = "";
     description.value = "";
-    
+
     console.log(nameRegistration, valueResgistration, description, operationType);
 });
 
@@ -31,14 +31,16 @@ function createRegistry(name, value, description, type) {
     let titleName = document.createElement("h3");
     let subtitleValue = document.createElement("h4");
     let descriptionRegistry = document.createElement("p");
+    let date = document.createElement("p");
     let btnDelete = document.createElement("button");
 
     divRegistry.id = name;
     divRegistry.className = type;
     divRegistry.className = "registration-box";
-    titleName.innerHTML = name;
-    subtitleValue.innerHTML = value;
-    descriptionRegistry.innerHTML = description;
+    titleName.innerHTML = name != '' ? name : "Registro Não Informado";
+    subtitleValue.innerHTML = value != '' ? value : "0";
+    descriptionRegistry.innerHTML = description != '' ? description : "Sem descrição.";;
+    date.innerHTML = new Date().toLocaleString();
     btnDelete.innerHTML = "Deletar";
 
     btnDelete.addEventListener("click", () => {
@@ -55,13 +57,14 @@ function createRegistry(name, value, description, type) {
     divRegistry.appendChild(titleName);
     divRegistry.appendChild(subtitleValue);
     divRegistry.appendChild(descriptionRegistry);
+    divRegistry.appendChild(date);
     divRegistry.appendChild(btnDelete);
 
     if(type == "entry") {
-        entryRegistration.appendChild(divRegistry);
+        entryRegistration.prepend(divRegistry);
         total += Number(value);
     } else if(type == "exit") {
-        exitRegistration.appendChild(divRegistry);
+        exitRegistration.prepend(divRegistry);
         total -= Number(value)
     } else {
         console.log(Error("Erro ao Criar Registro"));

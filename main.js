@@ -18,6 +18,10 @@ btnForm.addEventListener("click", () => {
 
     balance.innerHTML = total;
 
+    nameRegistration.value = "";
+    valueResgistration.value = "";
+    description.value = "";
+    
     console.log(nameRegistration, valueResgistration, description, operationType);
 });
 

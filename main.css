@@ -1,3 +1,7 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 #last-registrations {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -9,11 +13,15 @@
     max-width: 90%;
 }
 
-.form-registration {
-    
-}
-
 .form-registration div {
     display: grid;
     margin-bottom: .5em;
+}
+
+#last-registrations #entry-registration h2, #last-registrations #entry-registration h3 {
+    color: green;
+}
+
+#last-registrations #exit-registration h2, #last-registrations #exit-registration h3 {
+    color: red;
 }

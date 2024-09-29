@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Finanças Pessoais</title>
-
+  
   <link rel="stylesheet" href="main.css">
-
+  
   <script src="main.js" defer></script>
 </head>
 
@@ -16,6 +16,13 @@
     <h2 id="total"></h2>
   </div>
   <div class="form-registration">
+    <div>
+      <label for="operation-type">Tipo de Operação:</label>
+      <select name="operation-type" id="operation-type" onchange="console.log(this.value)">
+        <option value="entry">Entrada</option>
+        <option value="exit">Saída</option>
+      </select>
+    </div>
     <div>
       <label for="name-registration">Nome do Registro:</label>
       <input type="text" name="name-registration" id="name-registration" maxlength="30">
@@ -27,13 +34,6 @@
     <div>
       <label for="description">Descrição:</label>
       <textarea name="description" id="description" placeholder="Faça sua descrição aqui!"></textarea>
-    </div>
-    <div>
-      <label for="operation-type">Tipo de Operação:</label>
-      <select name="operation-type" id="operation-type" onchange="console.log(this.value)">
-        <option value="entry">Entrada</option>
-        <option value="exit">Saída</option>
-      </select>
     </div>
     <button id="btn-form">Ok</button>
   </div>

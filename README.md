@@ -19,13 +19,6 @@ Tecnologias Utilizadas
 
 Frontend: [Especificar tecnologia utilizada, ex: React, HTML, CSS]
 
-Backend: [Especificar tecnologia utilizada, ex: Node.js, Express]
-
-Banco de Dados: [Especificar tecnologia utilizada, ex: MongoDB, MySQL]
-
-Autenticação: [Especificar se há sistema de login, ex: JWT, OAuth]
-
-
 Como Usar
 
 1. Clone este repositório:

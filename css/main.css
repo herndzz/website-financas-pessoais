@@ -1,0 +1,162 @@
+/* Importações */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Variáveis de Cor */
+:root {
+    --cor-primaria: #000;
+    --cor-secundaria: #fff;
+    --cor-acento: ;
+    --cor-texto: ;
+    --cor-fundo: ;
+}
+
+/* Formatação do CSS(link) --> https://www.joshwcomeau.com/css/custom-css-reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+/* --------------- Início --------------- */
+* {
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--cor-secundaria);
+    background-color: var(--cor-primaria);
+    padding: 0 .5rem;
+}
+
+header a {
+    text-decoration: none;
+    color: var(--cor-secundaria);
+}
+
+header nav a {
+    text-decoration: none;
+    margin-left: .5rem;
+    border: 1px solid var(--cor-secundaria);
+    padding: .5rem;
+    font-weight: bold;
+    border-radius: 8px;
+    color: var(--cor-secundaria);
+    transition: .5s;
+}
+
+header nav a:hover {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-primaria);
+    transition: .5s;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+}
+
+/* --------------- Principal --------------- */
+.about-us {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem .5rem;
+}
+
+.about-content {
+    margin: 0 .5rem ;
+}
+
+/* Login Form */
+.login-form > * {
+    display: block;
+    margin-top: .5rem;
+}
+
+.form-registration {
+    padding: 1em 0;
+}
+
+#last-registrations {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: gainsboro;
+}
+
+.registration-box {
+    border: 1px solid black;
+    margin: .6em 0;
+    max-width: 90%;
+    padding: .2em .5em;
+}
+
+.form-registration div {
+    display: grid;
+    margin-bottom: .5em;
+}
+
+#last-registrations #entry-registration h3 {
+    color: green;
+}
+
+#last-registrations #exit-registration h3 {
+    color: red;
+}

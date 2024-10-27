@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br"> <!-- Define o idioma do HTML-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Finanças Pessoais</title> <!-- Título exibido na aba superior -->
+
+  <link rel="stylesheet" href="../css/main.css"> <!-- Busca os estilos da página no caminho fornecido-->
+  <script src="../js/main.js" defer></script>
+  <!-- Mesma coisa acima, o defer serve para carregar o arquivo js por último-->
+</head>
+
+<body>
+  <header>
+    <a href="#"><h1>Dashboard</h1></a>
+    <!-- <nav>
+      <ul>
+        <li><a href="#" rel="noopener noreferrer">Entrar</a></li>
+        <li><a href="#" rel="noopener noreferrer">Casdastrar</a></li>
+      </ul>
+    </nav> -->
+  </header>
+  <div class="balance">
+    <p>Total: R$</p>
+    <h2 id="total"></h2>
+  </div>
+  <main>
+    <section>
+      <form class="form-finance-registry" action="#">
+        <h4>Tipo de Operação:</h4>
+        <!-- Caixas de seleção(Entrada, Saída) -->
+        <input type="radio" name="operation-type" value="entry" id="radio-entry" checked>
+        <label for="radio-entry">Entrada</label>
+        <input type="radio" name="operation-type" value="exit" id="radio-exit">
+        <label for="radio-exit">Saída</label>
+        <!-- Input nome -->
+        <div class="form-content">
+          <label for="name-finance-registry">Nome:</label>
+          <input type="text" name="name-finance-registry" id="name-finance-registry">
+        </div>
+        <!-- Input valor -->
+        <div class="form-content">
+          <label for="value-finance-registry">Valor:</label>
+          <input oninput="this.value = this.value.replace(/[^0-9+.]/g, '')" type="text" name="value-finance-registry"
+            id="value-finance-registry">
+        </div>
+        <!-- Input description -->
+        <div class="form-content">
+          <label for="description-finance-registry">Descrição:</label>
+          <textarea name="description-finance-registry"
+            id="description-finance-registry" placeholder="[Insira a descrição aqui]"></textarea>
+        </div>
+        <!-- Input data -->
+        <div class="form-content">
+          <label for="date-finance-registry">Data:</label>
+          <input type="date" name="date-finance-registry" id="date-finance-registry">
+        </div>
+        <!-- Input tags -->
+        <div class="form-content">
+          <label for="tags-finance-registry">Tags:</label>
+          <input type="text" name="tags-finance-registry" id="tags-finance-registry">
+        </div>
+        <button id="btn-finance-registry">Adicionar</button>
+      </form>
+    </section>
+    <section>
+      <h2>Histórico</h2>
+      <div id="last-finance-registry"></div>
+    </section>
+  </main>
+
+  <!--<div class="form-registration">
+    <div>
+      <div>
+        <label for="operation-type">Tipo de Operação:</label>
+        <select name="operation-type" id="operation-type" onchange="console.log(this.value)">
+          <option value="entry">Entrada</option>
+          <option value="exit">Saída</option>
+        </select>
+      </div>
+      <label for="name-registration">Nome do Registro:</label>
+      <input type="text" name="name-registration" id="name-registration" maxlength="30">
+    </div>
+    <div>
+      <label for="value-registration">Valor(R$):</label>
+      <input type="number" name="value-registration" id="value-registration">
+    </div>
+    <div>
+      <label for="description">Descrição:</label>
+      <textarea name="description" id="description" placeholder="Faça sua descrição aqui!"></textarea>
+    </div>
+    <button id="btn-form">Ok</button>
+  </div>-->
+  <div id="last-registrations">
+    <h2 style="color: green;">Entradas</h2>
+    <h2 style="color: red;">Saídas</h2>
+    <div id="entry-registration">
+    </div>
+    <div id="exit-registration">
+    </div>
+  </div>
+</body>
+
+</html>

@@ -16,53 +16,41 @@
     <a href="#"><h1>Finanças Pessoais</h1></a>
     <nav>
       <ul>
-        <li><a href="#" rel="noopener noreferrer">Entrar</a></li>
-        <li><a href="#" rel="noopener noreferrer">Casdastrar</a></li>
+        <li><a href="pages/login.html" rel="noopener noreferrer">Entrar</a></li>
+        <li><a href="pages/register.html" rel="noopener noreferrer">Cadastrar</a></li> <!-- Corrigido -->
       </ul>
     </nav>
   </header>
   <main>
     <section class="about-us">
-      <img src='https://drscdn.500px.org/photo/1057408512/q%3D80_m%3D600/v2?sig=e6f3f11689aab6cdc9eaadcf27d4a43f1300924b3475150b5dfb9f4caa916954' alt='Woman using digital tablet by Olha Dobosh on 500px.com'/>
+      <div class="about-image">
+        <img src='assets/image/Image-01.jpg' alt='Woman using digital tablet by Olha Dobosh on 500px.com' />
+      </div>
       <div class="about-content">
         <h2>Sobre Nós</h2>
-        <p class="about-text">Este projeto tem como objetivo criar uma plataforma intuitiva para ajudar usuários a gerenciar suas finanças pessoais, permitindo o acompanhamento de despesas, receitas e a criação de metas financeiras. A interface foi desenvolvida com foco na simplicidade e na acessibilidade para facilitar a vida de quem quer controlar melhor seu orçamento.</p>
-        <h3>Funcionalidades</h3>
-        <ul>
-          <li>Cadastro de Despesas e Receitas: Adicione e categorize suas despesas e receitas de forma simples.</li>
-          <li>Gráficos: Visualize o desempenho financeiro através de gráficos.</li>
-          <li>Definição de Metas: Estabeleça metas financeiras e acompanhe o progresso.</li>
-          <li>Relatórios Financeiros: Gere relatórios personalizados por período.</li>
-        </ul>
+        <p class="about-text">Este projeto tem como objetivo criar uma plataforma intuitiva para ajudar usuários a gerenciar suas finanças pessoais...</p>
       </div>
     </section>
-    <section>
-      <form action="#" class="login-form">
-        <h2>Entrar</h2>
-        <label for="login-email">Email: </label>
-        <input placeholder="exemplo@gmail" type="email" name="login-email" id="login-email">
-        <label for="login-password">Senha: </label>
-        <input type="email" name="login-password" id="login-password">
-        <!-- Prove que você não tem a inteligência um coala -->
-        <span></span>
-        <label for="capitcha-verification">Verificação CAPITCHA: </label>
-        <input type="text" name="capitcha-verification" id="capitcha-verification">
-        <button id="login-btn">Entrar</button>
-      </form>
-      <form action="#" class="regsiter-form">
-        <h2>Cadastrar</h2>
-        <label for="regsiter-email">Email de cadastro: </label>
-        <input placeholder="exemplo@gmail" type="email" name="regsiter-email" id="regsiter-email">
-        <label for="regsiter-password">Criar senha: </label>
-        <input type="email" name="regsiter-password" id="regsiter-password">
-        <!-- Prove que você não tem a inteligência um coala -->
-        <span></span>
-        <label for="capitcha-verification">Verificação CAPITCHA: </label>
-        <input type="text" name="capitcha-verification" id="capitcha-verification">
-        <button id="login-btn">Casdastrar</button>
-      </form>
+    <hr>
+    <section class="functionalities"> <!-- Seção de Funcionalidades -->
+      <h2>Funcionalidades</h2>
+      <div class="modules-list">
+        <div class="module">
+          Cadastro de Despesas e Receitas: Adicione e categorize suas despesas e receitas de forma simples.
+        </div>
+        <div class="module">
+          Gráficos: Visualize o desempenho financeiro através de gráficos.
+        </div>
+        <div class="module">
+          Definição de Metas: Estabeleça metas financeiras e acompanhe o progresso.
+        </div>
+        <div class="module">
+          Relatórios Financeiros: Gere relatórios personalizados por período.
+        </div>
+      </div>
     </section>
   </main>
+  
 </body>
 
 </html>

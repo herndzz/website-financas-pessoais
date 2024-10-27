@@ -56,18 +56,86 @@ header ul {
 }
 
 /* --------------- Principal --------------- */
+body {
+    background-color: #252525;
+}
+
 .about-us {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
     display: flex;
-    flex-direction: row;
-    padding: 1rem .5rem;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+.about-image img {
+    width: 100%; 
+    border: 5px solid #333;
+    border-radius: 10px;
 }
 
 .about-content {
-    margin: 0 .5rem ;
+    position: relative;
+    max-width: 50%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo semitransparente */
+    padding: 2rem;
+    border-radius: 8px;
 }
 
+.about-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-content .about-text {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+/* Adicionando espaçamento ao container principal */
+main {
+    padding: 2rem; /* Padding para dar espaçamento em relação às bordas do site */
+}
+
+/* Funcionalidades */
+.functionalities h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+.functionalities {
+    background-image: url('../../assets/image/image-backgound.png'); 
+    background-size: cover; 
+    background-position: center; 
+    padding: 2rem; 
+    border-radius: 20px; /* Bordas arredondadas */
+    margin-top: 3rem; /* Margem superior */
+    text-align: center; /* Centraliza o texto */
+    min-height: 400px; /* Altura mínima para garantir que a imagem preencha a área */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra para um efeito elevado */
+}
+
+/* Módulos */
+
+
+/* Estilos para os módulos */
+.modules-list .module {
+    background-color: rgba(20, 20, 20, 0.8); /* Fundo semitransparente para melhor legibilidade */
+    color: #fff;
+    border: none;
+    border-radius: 20px; /* Bordas arredondadas para os módulos */
+    padding: 10px; /* Padding para espaçamento interno */
+    margin-bottom: 10px; /* Margem inferior entre os módulos */
+}
+
+
 /* Entrar e Cadastrar */
-.login-form > *, .regsiter-form > * {
+.login-form > *, .register-form > * {
     display: block;
     margin-top: .5rem;
 }

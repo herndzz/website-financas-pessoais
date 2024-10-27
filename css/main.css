@@ -1,74 +1,15 @@
 /* Importações */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url(reset.css);
+@import url(layout.css);
 
 /* Variáveis de Cor */
 :root {
     --cor-primaria: #000;
     --cor-secundaria: #fff;
-    --cor-acento: ;
+    --cor-acento: #666;
     --cor-texto: ;
     --cor-fundo: ;
-}
-
-/* Formatação do CSS(link) --> https://www.joshwcomeau.com/css/custom-css-reset */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-* {
-    margin: 0;
-}
-
-body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-}
-
-img,
-picture,
-video,
-canvas,
-svg {
-    display: block;
-    max-width: 100%;
-}
-
-
-input,
-button,
-textarea,
-select {
-    font: inherit;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    overflow-wrap: break-word;
-}
-
-p {
-    text-wrap: pretty;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    text-wrap: balance;
-}
-
-#root,
-#__next {
-    isolation: isolate;
 }
 
 /* --------------- Início --------------- */
@@ -125,14 +66,34 @@ header ul {
     margin: 0 .5rem ;
 }
 
-/* Login Form */
-.login-form > * {
+/* Entrar e Cadastrar */
+.login-form > *, .regsiter-form > * {
     display: block;
     margin-top: .5rem;
 }
 
 .form-registration {
     padding: 1em 0;
+}
+
+/* Formulário Registro Financeiro */
+.form-finance-registry {
+    width: auto;
+    max-width: 400px;            
+    margin: 0 auto;             
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;             
+    margin-bottom: 10px;            
+    width: 100%;             
+}
+
+textarea {
+    width: 100%;             
+    max-width: 100%;            
+    resize: vertical;             
 }
 
 #last-registrations {

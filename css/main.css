@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url(reset.css);
 @import url(layout.css);
+@import url(dashboard.css);
 
 /* Variáveis de Cor */
 :root {
@@ -136,50 +137,4 @@ main {
 
 .form-registration {
     padding: 1em 0;
-}
-
-/* Formulário Registro Financeiro */
-.form-finance-registry {
-    width: auto;
-    max-width: 400px;            
-    margin: 0 auto;             
-}
-
-.form-content {
-    display: flex;
-    flex-direction: column;             
-    margin-bottom: 10px;            
-    width: 100%;             
-}
-
-textarea {
-    width: 100%;             
-    max-width: 100%;            
-    resize: vertical;             
-}
-
-#last-registrations {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background-color: gainsboro;
-}
-
-.registration-box {
-    border: 1px solid black;
-    margin: .6em 0;
-    max-width: 90%;
-    padding: .2em .5em;
-}
-
-.form-registration div {
-    display: grid;
-    margin-bottom: .5em;
-}
-
-#last-registrations #entry-registration h3 {
-    color: green;
-}
-
-#last-registrations #exit-registration h3 {
-    color: red;
 }

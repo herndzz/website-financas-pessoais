@@ -1,30 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-br"> <!-- Define o idioma do HTML-->
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard | Finanças Pessoais</title> <!-- Título exibido na aba superior -->
 
-  <link rel="stylesheet" href="css/main.css"> <!-- Busca os estilos da página no caminho fornecido-->
-  <script src="../js/main.js" defer></script>
-  <!-- Mesma coisa acima, o defer serve para carregar o arquivo js por último-->
+  <link rel="stylesheet" href="../css/main.css"> <!-- Busca os estilos da página no caminho fornecido-->
+  <script src="../js/main.js" defer></script> <!-- Mesma coisa acima, o defer serve para carregar o arquivo js por último-->
 </head>
 
 <body>
   <header>
-    <a href="#"><h1>Dashboard</h1></a>
-    <!-- <nav>
-      <ul>
-        <li><a href="#" rel="noopener noreferrer">Entrar</a></li>
-        <li><a href="#" rel="noopener noreferrer">Casdastrar</a></li>
-      </ul>
-    </nav> -->
+    <a href="../index.html"><h1>Dashboard</h1></a>
   </header>
+
   <div class="balance">
     <p>Total: R$</p>
     <h2 id="total"></h2>
   </div>
+
   <main>
     <section>
       <form class="form-finance-registry" action="#">
@@ -34,18 +28,18 @@
         <label for="radio-entry">Entrada</label>
         <input type="radio" name="operation-type" value="exit" id="radio-exit">
         <label for="radio-exit">Saída</label>
-        <!-- Input nome -->
+        <!-- Input para nome -->
         <div class="form-content">
           <label for="name-finance-registry">Nome:</label>
           <input type="text" name="name-finance-registry" id="name-finance-registry">
         </div>
-        <!-- Input valor -->
+        <!-- Input para valor -->
         <div class="form-content">
           <label for="value-finance-registry">Valor:</label>
           <input oninput="this.value = this.value.replace(/[^0-9+.]/g, '')" type="text" name="value-finance-registry"
             id="value-finance-registry">
         </div>
-        <!-- Input description -->
+        <!-- Input para descrição -->
         <div class="form-content">
           <label for="description-finance-registry">Descrição:</label>
           <textarea name="description-finance-registry"
@@ -64,34 +58,13 @@
         <button id="btn-finance-registry">Adicionar</button>
       </form>
     </section>
+
     <section>
       <h2>Histórico</h2>
       <div id="last-finance-registry"></div>
     </section>
   </main>
 
-  <!--<div class="form-registration">
-    <div>
-      <div>
-        <label for="operation-type">Tipo de Operação:</label>
-        <select name="operation-type" id="operation-type" onchange="console.log(this.value)">
-          <option value="entry">Entrada</option>
-          <option value="exit">Saída</option>
-        </select>
-      </div>
-      <label for="name-registration">Nome do Registro:</label>
-      <input type="text" name="name-registration" id="name-registration" maxlength="30">
-    </div>
-    <div>
-      <label for="value-registration">Valor(R$):</label>
-      <input type="number" name="value-registration" id="value-registration">
-    </div>
-    <div>
-      <label for="description">Descrição:</label>
-      <textarea name="description" id="description" placeholder="Faça sua descrição aqui!"></textarea>
-    </div>
-    <button id="btn-form">Ok</button>
-  </div>-->
   <div id="last-registrations">
     <h2 style="color: green;">Entradas</h2>
     <h2 style="color: red;">Saídas</h2>
@@ -101,5 +74,4 @@
     </div>
   </div>
 </body>
-
 </html>

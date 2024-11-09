@@ -1,15 +1,28 @@
-* {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Formulário Registro Financeiro */
+.form-finance-registry {
+    width: auto;
+    max-width: 400px;            
+    margin: 0 auto;             
 }
 
-.form-registration {
-    padding: 1em 0;
+.form-content {
+    display: flex;
+    flex-direction: column;             
+    margin-bottom: 10px;            
+    width: 100%;             
+}
+
+textarea {
+    width: 100%;             
+    max-width: 100%;            
+    resize: vertical;             
 }
 
 #last-registrations {
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: gainsboro;
+    color: #000;
 }
 
 .registration-box {

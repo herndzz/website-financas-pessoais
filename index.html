@@ -1,49 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br"> <!-- Define o idioma do HTML-->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Finanças Pessoais</title>
-  
-  <link rel="stylesheet" href="main.css">
-  
-  <script src="main.js" defer></script>
-</head>
+  <title>Home | Finanças Pessoais</title> <!-- Título exibido na aba superior -->
 
+  <link rel="stylesheet" href="../css/main.css"> <!-- Busca os estilos da página no caminho fornecido-->
+  <script src="./js/main.js" defer></script>
+  <!-- Mesma coisa acima, o atributo defer serve para carregar o arquivo js por último-->
+</head>
 <body>
-  <div class="balance">
-    <p>Total: R$</p>
-    <h2 id="total"></h2>
-  </div>
-  <div class="form-registration">
-    <div>
-      <div>
-        <label for="operation-type">Tipo de Operação:</label>
-        <select name="operation-type" id="operation-type" onchange="console.log(this.value)">
-          <option value="entry">Entrada</option>
-          <option value="exit">Saída</option>
-        </select>
+  <header>
+    <a href="index.html">
+      <h1>Finanças Pessoais</h1>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="pages/login.html" rel="noopener noreferrer">Entrar</a></li>
+        <li><a href="pages/register.html" rel="noopener noreferrer">Cadastrar</a></li>
+        <li><a href="dicas.html" rel="noopener noreferrer">Dicas Financeiras</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="about-us">
+      <div class="about-image">
+        <img src='assets/image/Image-01.jpg' alt='Woman using digital tablet by Olha Dobosh on 500px.com' />
       </div>
-      <label for="name-registration">Nome do Registro:</label>
-      <input type="text" name="name-registration" id="name-registration" maxlength="30">
-    </div>
-    <div>
-      <label for="value-registration">Valor(R$):</label>
-      <input type="number" name="value-registration" id="value-registration">
-    </div>
-    <div>
-      <label for="description">Descrição:</label>
-      <textarea name="description" id="description" placeholder="Faça sua descrição aqui!"></textarea>
-    </div>
-    <button id="btn-form">Ok</button>
-  </div>
-  <div id="last-registrations">
-    <h2 style="color: green;">Entradas</h2>
-    <h2 style="color: red;">Saídas</h2>
-    <div id="entry-registration">
-    </div>
-    <div id="exit-registration">
-    </div>
-  </div>
+      <div class="about-content">
+        <h2>Sobre Nós</h2>
+        <p class="about-text">Este projeto tem como objetivo criar uma plataforma intuitiva para ajudar usuários a
+          gerenciar suas finanças pessoais...</p>
+      </div>
+    </section>
+    <hr>
+
+    <section class="functionalities"> <!-- Seção de Funcionalidades -->
+      <h2>Funcionalidades</h2>
+      <div class="modules-list">
+        <div class="module">
+          Cadastro de Despesas e Receitas: Adicione e categorize suas despesas e receitas de forma simples.
+        </div>
+        <div class="module">
+          Gráficos: Visualize o desempenho financeiro através de gráficos.
+        </div>
+        <div class="module">
+          Definição de Metas: Estabeleça metas financeiras e acompanhe o progresso.
+        </div>
+        <div class="module">
+          Relatórios Financeiros: Gere relatórios personalizados por período.
+        </div>
+      </div>
+    </section>
+  </main>
+
 </body>
 </html>

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" >
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login | Finanças Pessoais</title>
 
   <link rel="stylesheet" href="../css/main.css"> <!-- Busca os estilos da página no caminho fornecido-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <script src="../js/main.js" defer></script>
 </head>
 
@@ -16,8 +17,11 @@
     </a>
     <nav>
       <ul>
-        <li><a href="./login.html" rel="noopener noreferrer">Entrar</a></li>
-        <li><a href="./register.html" rel="noopener noreferrer">Cadastrar</a></li>
+        <li><a href="../pages/login.html" rel="noopener noreferrer">Entrar</a></li>
+        <li><a href="../pages/register.html" rel="noopener noreferrer">Cadastrar</a></li>
+        <div class="header_toggle">
+          <i id="toggleTheme" class="bi bi-sun"></i>
+        </div>
       </ul>
     </nav>
   </header>
@@ -29,13 +33,22 @@
       <input placeholder="exemplo@gmail" type="email" name="login-email" id="login-email">
       
       <label for="login-password">Senha: </label>
-      <input type="password" name="login-password" id="login-password">
+      <div class="senha-container">
+        <input placeholder="Senha" type="password" name="login-password" id="login-password" required>
+        <button type="button" id="togglePassword" class="eye-icon">
+          <i class="bi bi-eye"></i>
+        </button>
+      </div>
 
-      <!-- Prove que você não tem a inteligência um coala -->
+      <!-- Prove que você não tem a inteligência de um coala -->
       <label for="capitcha-verification">Verificação CAPITCHA: </label>
-      <input type="text" name="capitcha-verification" id="capitcha-verification">
+      <input placeholder="Verificar CAPITCHA" type="text" name="capitcha-verification" id="capitcha-verification">
       <button id="login-btn">Entrar</button>
     </form>
   </section>
+
+  <!-- Correção do caminho do arquivo JS para script.js -->
+  <script src="../js/scipt.js"></script>
+  <script src="./js/main.js" defer></script>
 </body>
 </html>

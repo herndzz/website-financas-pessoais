@@ -1,0 +1,49 @@
+main {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.dicas-financeiras {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.dica-financeira {
+    margin-bottom: 40px;
+}
+
+.dica-financeira h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.dica-financeira p {
+    line-height: 1.6;
+}
+
+.dica-financeira ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.dica-financeira li {
+    margin-bottom: 10px;
+}
+
+.dica-financeira h4 {
+    margin-bottom: 5px;
+}
+
+.dicas-financeiras {
+    background-color: #444;
+    padding: 80px;
+}
+
+.dica-financeira {
+    background-color: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}

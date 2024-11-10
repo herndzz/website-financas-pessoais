@@ -1,123 +1,60 @@
-// Variáveis
-const logFinanceRegistry = [];
+document.addEventListener("DOMContentLoaded", function() {
+    const toggleTheme = document.getElementById("toggleTheme");
+    const rootHtml = document.documentElement;
 
-// Variáveis de Elementos HTML
-let btnFinanceRegistry = document.getElementById("btn-finance-registry");
+    // Função que altera o tema
+    function changeTheme() {
+        const currentTheme = rootHtml.getAttribute("data-theme");
 
-// let btnForm = document.getElementById("btn-form");
-let entryRegistration = document.getElementById("entry-registration");
-let exitRegistration = document.getElementById("exit-registration");
-let balance = document.querySelector("div.balance h2");
-let total = 0;
-
-// Classes
-class FinanceRegistry {
-    constructor(id, type, name, value, description, date, tags) {
-        this.id = id;
-        this.type = type;
-        this.name = name === "" ? `Regsitro Anônimo - ${new Date().toLocaleDateString()}` : name;
-        this.value = value;
-        this.description = description === "" ? "Descrição não informada." : description;
-        this.date = date === "" ? new Date() : date;
-        this.tags = tags;
-    }
-}
-
-balance.innerHTML = total;
-
-// Eventos
-btnFinanceRegistry.addEventListener("click", (e) => {
-        e.preventDefault();
-    
-        let radioFinanceRegistry = document.getElementById("radio-entry").checked === true ? "entry" : "exit";
-        let nameFinanceRegistry = document.getElementById("name-finance-registry").value;
-        let valueFinanceRegistry = document.getElementById("value-finance-registry").value;
-        let descriptionFinanceRegistry = document.getElementById("description-finance-registry").value;
-        let dateFinanceRegistry = document.getElementById("date-finance-registry").value;
-        let tagsFinanceRegistry = document.getElementById("tags-finance-registry").value;
-    
-        logFinanceRegistry.push(new FinanceRegistry(
-            0,
-            radioFinanceRegistry,
-            nameFinanceRegistry,
-            valueFinanceRegistry,
-            descriptionFinanceRegistry,
-            dateFinanceRegistry,
-            tagsFinanceRegistry
-        ));
-    
-        createFinanceRegistry(0,
-            radioFinanceRegistry,
-            nameFinanceRegistry,
-            valueFinanceRegistry,
-            descriptionFinanceRegistry,
-            dateFinanceRegistry,
-            tagsFinanceRegistry
-        );
-    
-        console.log(logFinanceRegistry);
-    }
-)
-
-// Functions 
-function createFinanceRegistry(id, type, name, value, description, date, tags) {
-    let lastFinanceRegistry = document.getElementById("last-finance-registry");
-    
-    // Armazenando a criação de elementos HTML em variáveis
-    let div = document.createElement("div");
-    let divContent = document.createElement("div");
-    let h3 = document.createElement("h3");
-    let pName = document.createElement("p");
-    let pValue = document.createElement("p");
-    let pDescription = document.createElement("p");
-    let pDate = document.createElement("p");
-    let pTags = document.createElement("p");
-    let btnDelete = document.createElement("button");
-
-    // Adicionando as informações aos elementos
-    h3.textContent = `Registro #${id} - ${type === "entry" ? "Entrada" : "Saída"}`;
-    pName.textContent = `Nome: ${name}`;
-    pValue.textContent = `Valor: R$ ${value}`;
-    pDescription.textContent = `Descrição: ${description}`;
-    pDate.textContent = `Data: ${date}`;
-    pTags.textContent = `Tags: ${tags}`;
-    btnDelete.textContent = "Remover";
-
-    divContent.appendChild(h3);
-    divContent.appendChild(pName);
-    divContent.appendChild(pValue);
-    divContent.appendChild(pDescription);
-    divContent.appendChild(pDate);
-    divContent.appendChild(pTags);
-    divContent.appendChild(btnDelete);
-
-    // Função do botão de remover
-    btnDelete.addEventListener("click", () => {
-        if (type == "entry") {
-            total -= Number(value);
-            balance.textContent = total;
-        } else if (type == "exit") {
-            total += Number(value);
-            balance.textContent = total;
+        if (currentTheme === "dark") {
+            rootHtml.setAttribute("data-theme", "light");
+            localStorage.setItem('theme', 'light');
+        } else {
+            rootHtml.setAttribute("data-theme", "dark");
+            localStorage.setItem('theme', 'dark');
         }
-        btnDelete.parentElement.remove();
-    })
 
-    div.appendChild(divContent);
-
-    lastFinanceRegistry.prepend(div);
-
-    if (type == "entry") {
-        entryRegistration.prepend(lastFinanceRegistry.cloneNode(true));
-        total += Number(value);
-    } else if (type == "exit") {
-        exitRegistration.prepend(lastFinanceRegistry.cloneNode(true));
-        total -= Number(value)
-    } else {
-        console.log(Error("Erro ao Criar Registro"));
+        toggleTheme.classList.toggle("bi-sun");
+        toggleTheme.classList.toggle("bi-moon-stars");
     }
 
-    balance.textContent = total;
+    // Verifica e aplica o tema salvo
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        rootHtml.setAttribute("data-theme", savedTheme);
+        if (savedTheme === 'dark') {
+            toggleTheme.classList.add("bi-sun");
+            toggleTheme.classList.remove("bi-moon-stars");
+        } else {
+            toggleTheme.classList.add("bi-moon-stars");
+            toggleTheme.classList.remove("bi-sun");
+        }
+    }
 
-    console.log(id, type, name, value, description, date, tags);
-}
+    // Alterna o tema ao clicar no botão
+    toggleTheme.addEventListener("click", changeTheme);
+});
+
+document.getElementById("togglePassword").addEventListener("click", function() {
+    const passwordField = document.getElementById("register-password");
+    const icon = this.querySelector("i");
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        icon.classList.replace("bi-eye", "bi-eye-slash");
+    } else {
+        passwordField.type = "password";
+        icon.classList.replace("bi-eye-slash", "bi-eye");
+    }
+});
+
+document.getElementById("toggleConfirmPassword").addEventListener("click", function() {
+    const confirmPasswordField = document.getElementById("confirm-password");
+    const icon = this.querySelector("i");
+    if (confirmPasswordField.type === "password") {
+        confirmPasswordField.type = "text";
+        icon.classList.replace("bi-eye", "bi-eye-slash");
+    } else {
+        confirmPasswordField.type = "password";
+        icon.classList.replace("bi-eye-slash", "bi-eye");
+    }
+});

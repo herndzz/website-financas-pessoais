@@ -1,0 +1,110 @@
+/* Formulário Registro Financeiro */
+.form-finance-registry {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-finance-registry h4 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.form-finance-registry .form-content {
+    margin-bottom: 15px;
+}
+
+.form-finance-registry label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-finance-registry input[type="text"],
+.form-finance-registry input[type="date"],
+.form-finance-registry textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-finance-registry input[type="text"]:focus,
+.form-finance-registry input[type="date"]:focus,
+.form-finance-registry textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+.form-finance-registry button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1em;
+}
+
+.form-finance-registry button:hover {
+    background-color: #0056b3;
+}
+
+#last-registrations {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    background-color: gainsboro;
+    color: #000;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Responsividade para grades de registros */
+@media (min-width: 600px) {
+    #last-registrations {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.registration-box {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 0.6em 0;
+    padding: 0.5em;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#last-registrations #entry-registration h3 {
+    color: green;
+    font-size: 1.2em;
+}
+
+#last-registrations #exit-registration h3 {
+    color: red;
+    font-size: 1.2em;
+}
+
+.form-registration div {
+    display: grid;
+    margin-bottom: 0.5em;
+}
+
+textarea {
+    width: 100%;
+    max-width: 100%;
+    resize: vertical;
+}

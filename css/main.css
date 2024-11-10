@@ -1,20 +1,58 @@
 /* Importações */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url(reset.css);
-@import url(layout.css);
-@import url(dashboard.css);
+
 
 /* Variáveis de Cor */
-:root {
-    --cor-primaria: #000;
+/* Tema Claro */
+:root,
+:root[data-theme='light'] {
+    --cor-primaria: #f4f4f4;
+    --cor-secundaria: #333;
+    --cor-fundo: #fff;
+    --cor-secundaria-escura: #eee;
+    --cor-botao: #4CAF50;
+    --cor-botao-hover: #3a7e3d;
+    --cor-texto: #333;
+}
+
+/* Tema Escuro */
+:root[data-theme='dark'] {
+    --cor-primaria: #333;
     --cor-secundaria: #fff;
-    --cor-acento: #666;
+    --cor-fundo: #252525;
+    --cor-secundaria-escura: #444;
+    --cor-botao: #4CAF50;
+    --cor-botao-hover: #3a7e3d;
+    --cor-texto: #ddd;
+}
+
+#toggleTheme {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: ease-in-out .5s;
+}
+
+/* Ajustes no ícone de lua e sol */
+#toggleTheme.bi-sun {
+    color: #FFB400;
+}
+
+#toggleTheme.bi-moon-stars {
+    color: #7a7a7a;
 }
 
 /* --------------- Início --------------- */
 * {
     font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    box-sizing: border-box; /* Para garantir o cálculo correto do padding e da largura */
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
 }
 
 /* Cabeçalho */
@@ -25,6 +63,7 @@ header {
     color: var(--cor-secundaria);
     background-color: var(--cor-primaria);
     padding: 0 .5rem;
+    height: 5rem;
 }
 
 header a {
@@ -34,9 +73,9 @@ header a {
 
 header nav a {
     text-decoration: none;
-    margin-left: .5rem;
+    margin-left: .1rem;
     border: 1px solid var(--cor-secundaria);
-    padding: .5rem;
+    padding: .4rem;
     font-weight: bold;
     border-radius: 8px;
     color: var(--cor-secundaria);
@@ -55,17 +94,67 @@ header ul {
     flex-direction: row;
 }
 
-/* --------------- Principal --------------- */
-body {
-    margin: 0; /* Remove a margem padrão */
-    padding: 0; /* Remove o padding padrão */
-    background-color: #252525;
-    color: #fff; /* Definindo a cor padrão do texto */
+header li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Container Principal */
+header h1 {
+    font-size: 2rem;
+    margin: 0;
+    background: radial-gradient(circle at -20.71% 50%, #f2ff7c 0, #deff80 8.33%, #c8fe84 16.67%, #b2f888 25%, #9bef8c 33.33%, #84e58f 41.67%, #6cd890 50%, #55cb91 58.33%, #3fc091 66.67%, #26b693 75%, #00ad94 83.33%, #00a696 91.67%, #00a099 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+
+header nav ul {
+    list-style: none;
+    padding: 10px;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+header nav ul li a {
+    color: var(--cor-botao);
+    text-decoration: none;
+}
+
+/* --------------- Principal --------------- */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--cor-fundo);
+    background-size: cover;
+    color: var(--cor-texto);
+    font-family: 'Arial', sans-serif;
+}
+
 main {
-    padding: 2rem; /* Padding para dar espaçamento em relação às bordas do site */
+    padding: 2rem;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 50px;
+    margin: 10px 620px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #45a049;
+    /* Cor de fundo ao passar o mouse */
 }
 
 /* Sobre Nós */
@@ -77,64 +166,194 @@ main {
 }
 
 .about-image img {
-    width: 100%; 
-    border: 5px solid #2657b1;
+    max-width: 100%;
+    border: 5px solid var(--cor-botao);
     border-radius: 10px;
-    padding: 2px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .about-content {
     flex: 1;
+    font-size: 1.6rem;
+}
+
+.about-content h2 {
+    flex: 1;
+    font-size: 2.4rem;
+    color: var(--cor-botao-hover);
+}
+
+.about-text {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-top: 0.5rem;
 }
 
 /* Funcionalidades */
 .functionalities {
-    background-image: url('assets/image/image-backgound.png'); 
-    background-size: cover; 
-    background-position: center; 
-    padding: 2rem; 
-    border-radius: 20px; /* Bordas arredondadas */
-    margin-top: 3rem; /* Margem superior */
-    text-align: center; /* Centraliza o texto */
-    min-height: 400px; /* Altura mínima para garantir que a imagem preencha a área */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra para um efeito elevado */
+    background-color: var(--cor-fundo);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    text-align: left;
+    position: relative;
 }
 
 .functionalities h2 {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #fff;
+    color: var(--cor-botao);
+    margin: 0;
+    padding-bottom: 1rem;
+    position: absolute;
+    top: -2.5rem;
+    left: auto;
+    background-color: var(--cor-primaria);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
 }
 
-/* Módulos */
 .modules-list {
-    background-image: url('assets/image/image-backgound.png'); 
-    background-size: cover; 
-    background-position: center; 
-    padding: 2rem; 
-    border-radius: 20px; /* Bordas arredondadas */
-    margin-top: 3rem; /* Margem superior */
-    text-align: center; /* Centraliza o texto */
-    min-height: 400px; /* Altura mínima para garantir que a imagem preencha a área */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra para um efeito elevado */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-/* Estilos para os módulos */
 .modules-list .module {
-    background-color: rgba(20, 20, 20, 0.8); /* Fundo semitransparente para melhor legibilidade */
-    color: #fff;
-    border: none;
-    border-radius: 20px; /* Bordas arredondadas para os módulos */
-    padding: 10px; /* Padding para espaçamento interno */
-    margin-bottom: 10px; /* Margem inferior entre os módulos */
+    background-color: var(--cor-secundaria-escura);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    color: var(--cor-texto);
+    font-size: 1.45rem;
+    line-height: 1.4;
+    transition: transform 0.3s;
+}
+
+.modules-list .module:hover {
+    transform: translateY(-5px);
 }
 
 /* Entrar e Cadastrar */
-.login-form > *, .register-form > * {
-    display: block;
-    margin-top: .5rem;
+
+.senha-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
 }
 
-.form-registration {
-    padding: 1em 0;
+.senha-container input {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 4px;
+    border: 4px solid #b6b6b6;
+    margin-top: 0.3rem;
+    font-size: 1rem;
+}
+
+#togglePassword,
+#toggleConfirmPassword {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--cor-secundaria);
+    font-size: 1.2rem;
+}
+
+.eye-icon {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    /* Ajuste o tamanho conforme necessário */
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    /* Ajuste a posição à direita do campo de senha */
+    top: 50%;
+    transform: translateY(-50%);
+    color: inherit;
+}
+
+.senha-container {
+    position: center;
+}
+
+#togglePassword i,
+#toggleConfirmPassword i {
+    font-size: 1.2rem;
+}
+
+#toggleTheme.bi-eye {
+    color: #000000;
+}
+
+#toggleTheme.bi-eye-slash {
+    color: #000000;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem;
+}
+
+/* Rodapé */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 20px;
+}
+
+.footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.footer-section p {
+    line-height: 1.5;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #f0f0f0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+    }
 }

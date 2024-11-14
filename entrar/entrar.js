@@ -34,7 +34,7 @@ LoginBtn.addEventListener("click", (e) => {
             console.log("Início For", user);
             if (user.email == email && user.password == password) {
                 console.log("Usuário Conectado");  
-                window.open('../pages/dashboard.html', '_blank');
+                window.open('../painel/painel.html', '_blank');
             }
         });
     }

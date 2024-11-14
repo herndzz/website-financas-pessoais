@@ -119,3 +119,8 @@ function createFinanceRegistry(id, type, name, value, description, date, tags) {
 
     console.log(id, type, name, value, description, date, tags);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    let bemVindo = document.getElementById("bem-vindo-usuario");
+    bemVindo.innerHTML = `${ null }, seja bem-vindo!`;
+})

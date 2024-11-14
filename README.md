@@ -19,8 +19,9 @@ Este projeto tem como objetivo criar uma plataforma intuitiva para ajudar usuár
 * Relatórios Financeiros: Gere relatórios personalizados por período.
 
 ## Organizacão do Código
-Padrão de pastas: Estruturação Funcional
+Padrão de pastas: Estruturação por Página
 Padrão de projeto: MVC
+Idioma padrão de escrita: português
 
 Como Usar
 1. Clone este repositório:

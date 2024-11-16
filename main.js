@@ -1,3 +1,106 @@
+// Este arquivo contém os códigos principais e essenciais para o bom funcionamento da página
+
+// ---------- IndexedDB ----------
+class MinhasFinancasIndexedDB {
+    constructor(dbName = "MinhasFinancasDB", storeName = "Usuarios") {
+        this.dbName = dbName;
+        this.storeName = storeName;
+    }
+
+    // Método para abrir o banco
+    async abrirBancoDeDados() {
+        return new Promise((resolve, reject) => {
+            const request = indexedDB.open(this.dbName, 1);
+
+            request.onupgradeneeded = (event) => {
+                const db = event.target.result;
+
+                // Cria a tabela se não existir
+                if (!db.objectStoreNames.contains(this.storeName)) {
+                    db.createObjectStore(this.storeName, { keyPath: "email" }); // "email" como chave primária
+                }
+            };
+
+            request.onsuccess = (event) => resolve(event.target.result);
+            request.onerror = (event) => reject(event.target.error);
+        });
+    }
+
+    // Método para salvar (adicionar/atualizar) um usuário
+    async salvarUsuario(usuario) {
+        const db = await this.abrirBancoDeDados();
+        return new Promise((resolve, reject) => {
+            const transaction = db.transaction(this.storeName, "readwrite");
+            const store = transaction.objectStore(this.storeName);
+            const request = store.put(usuario); // Adiciona ou atualiza
+
+            request.onsuccess = () => resolve("Usuário salvo com sucesso!");
+            request.onerror = () => reject("Erro ao salvar usuário.");
+        });
+    }
+
+    // Método para buscar um usuário pelo email
+    async buscarUsuario(email) {
+        const db = await this.abrirBancoDeDados();
+        return new Promise((resolve, reject) => {
+            const transaction = db.transaction(this.storeName, "readonly");
+            const store = transaction.objectStore(this.storeName);
+            const request = store.get(email);
+
+            request.onsuccess = () => {
+                if (request.result) {
+                    resolve(request.result);
+                } else {
+                    reject("Usuário não encontrado.");
+                }
+            };
+            request.onerror = () => reject("Erro ao buscar usuário.");
+        });
+    }
+}
+
+// ---------- Classes ----------
+/**
+ * Gerenciamento do estado de login do usuário.
+ */
+class ControladorDeLogin {
+    constructor() {
+        /**
+         * Mostra se um usuário está logado.
+         * @type {boolean}
+         */
+        this.usuarioLogado = false;
+        
+        /**
+         * Mostra os dados do usuário logado atual.
+         * @type {Object|null}
+         */
+        this.usuarioAtual = null;
+
+        function usuarioEntrou() {
+            this.usuarioLogado = true;
+            console.log("Seu cu")
+        }
+
+        function usuarioSaiu() {
+            this.usuarioLogado = false;
+        }
+
+        /**
+        * @param {Object} usuario - Objeto contendo os dados do usuário.
+        */
+        function usuarioLogado(usuario) {
+            this.usuarioAtual = usuario;
+        }
+    }
+}
+
+// ---------- Armazenamento Local ----------
+if(!localStorage.getItem("ControladorDeLogin")) {
+    localStorage.setItem("ControladorDeLogin", JSON.stringify(new ControladorDeLogin));
+}
+
+// ---------- Eventos ----------
 document.addEventListener("DOMContentLoaded", function() {
     const toggleTheme = document.getElementById("toggleTheme");
     const rootHtml = document.documentElement;
@@ -35,26 +138,28 @@ document.addEventListener("DOMContentLoaded", function() {
     toggleTheme.addEventListener("click", changeTheme);
 });
 
-document.getElementById("togglePassword").addEventListener("click", function() {
-    const passwordField = document.getElementById("register-password");
-    const icon = this.querySelector("i");
-    if (passwordField.type === "password") {
-        passwordField.type = "text";
-        icon.classList.replace("bi-eye", "bi-eye-slash");
-    } else {
-        passwordField.type = "password";
-        icon.classList.replace("bi-eye-slash", "bi-eye");
-    }
-});
+// document.getElementById("togglePassword").addEventListener("click", function() {
+//     const passwordField = document.getElementById("register-password");
+//     const icon = this.querySelector("i");
+//     if (passwordField.type === "password") {
+//         passwordField.type = "text";
+//         icon.classList.replace("bi-eye", "bi-eye-slash");
+//     } else {
+//         passwordField.type = "password";
+//         icon.classList.replace("bi-eye-slash", "bi-eye");
+//     }
+// });
 
-document.getElementById("toggleConfirmPassword").addEventListener("click", function() {
-    const confirmPasswordField = document.getElementById("confirm-password");
-    const icon = this.querySelector("i");
-    if (confirmPasswordField.type === "password") {
-        confirmPasswordField.type = "text";
-        icon.classList.replace("bi-eye", "bi-eye-slash");
-    } else {
-        confirmPasswordField.type = "password";
-        icon.classList.replace("bi-eye-slash", "bi-eye");
-    }
-});
+// document.getElementById("toggleConfirmPassword").addEventListener("click", function() {
+//     const confirmPasswordField = document.getElementById("confirm-password");
+//     const icon = this.querySelector("i");
+//     if (confirmPasswordField.type === "password") {
+//         confirmPasswordField.type = "text";
+//         icon.classList.replace("bi-eye", "bi-eye-slash");
+//     } else {
+//         confirmPasswordField.type = "password";
+//         icon.classList.replace("bi-eye-slash", "bi-eye");
+//     }
+// });
+
+export default MinhasFinancasIndexedDB;

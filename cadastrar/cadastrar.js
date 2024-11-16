@@ -1,31 +1,44 @@
+import MinhasFinancasIndexedDB from "../main.js";
+
+let MinhasFinancasDB = new MinhasFinancasIndexedDB();
+MinhasFinancasDB.abrirBancoDeDados()
+
 console.log("SCRIPT OK");
 
+// ---------- Variáveis Principais ----------
 let responseKaptcha = 0;
 let randomNumberKaptcha = document.getElementById("random-number-kaptcha");
 let registerBtn = document.getElementById("register-btn");
 
-let arr = [];
-
-// Modelo para crição de informações do usuário
-class User {
-    constructor(email, name, telephone, question, responseQuestion, password) {
+// ---------- Classes ----------
+class Usuario {
+    /**
+    * @param {string} email - O e-mail do usuário.
+    * @param {string} nome - O nome completo do usuário.
+    * @param {string} telefone - O número de telefone do usuário.
+    * @param {string} questao - A pergunta de segurança do usuário.
+    * @param {string} respostaQuestao - A resposta para a pergunta de segurança.
+    * @param {string} senha - A senha do usuário.
+    */
+    constructor(email, nome, telefone, questao, respostaQuestao, senha) {
         this.email = email;
-        this.name = name;
-        this.telephone = telephone;
-        this.question = question;
-        this.responseQuestion = responseQuestion;
-        this.password = password;
-        this.entryFinance = [];
-        this.exitFinance = []
+        this.nome = nome;
+        this.telefone = telefone;
+        this.questao = questao;
+        this.respostaQuestao = respostaQuestao;
+        this.senha = senha;
+        this.receitas = [];
+        this.saidas = []
     }
 }
 
-// Eventos
+// ---------- Eventos ----------
 document.addEventListener("DOMContentLoaded", () => {
-    let x = Math.floor(Math.random() * 100);
-    let y = Math.floor(Math.random() * 100);
+    let x = Math.floor(Math.random() * 20);
+    let y = Math.floor(Math.random() * 20);
+    
     responseKaptcha = 0;
-    randomNumberKaptcha.innerText = `${x} + ${y} = ?`;
+    randomNumberKaptcha.innerText = `${x} + ${y} = ?\n`;
     responseKaptcha += (x + y);
 })
 
@@ -44,7 +57,7 @@ registerBtn.addEventListener("click", (e) => {
     let confirmPassword = document.getElementById("confirm-password").value;
     let katpchaVerification = document.getElementById("kaptcha-verification").value;
     
-    
+    // Validação básica dos dados
     if(email == "") {
         registerError.innerText += "* Endereço eletrônico inválido.\n"
     }
@@ -63,13 +76,8 @@ registerBtn.addEventListener("click", (e) => {
 
     // Criação do usuário se todos os dados estiverem corrretos
     if(email != "" && name != "" && telephone != "" && password == confirmPassword && (password != "" && confirmPassword != "") && Number(katpchaVerification) === responseKaptcha) {
-        let usersData = JSON.parse(localStorage.getItem("usersData")) || [];
-        usersData.push(new User(email, name, telephone, question, resQuestion, password));
-        localStorage.setItem("usersData", JSON.stringify(usersData));
         
-        arr.unshift(new User(email, name, telephone, question, resQuestion, password));
+        MinhasFinancasDB.salvarUsuario(new Usuario(email, name, telephone, question, resQuestion, password));
         registerError.innerText = "Cadastro realizado!";
     }
-
-    console.log({arr, e})
 });

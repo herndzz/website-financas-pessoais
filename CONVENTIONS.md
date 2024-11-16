@@ -1,5 +1,4 @@
 # Convenções do Projeto
-
 Este documento descreve as convenções de nomenclatura e padrões de código a serem seguidos neste projeto.
 
 ## Padrões de Branches

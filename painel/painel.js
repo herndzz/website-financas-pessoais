@@ -3,8 +3,6 @@ const logFinanceRegistry = [];
 
 // Variáveis de Elementos HTML
 let btnFinanceRegistry = document.getElementById("btn-finance-registry");
-
-// let btnForm = document.getElementById("btn-form");
 let entryRegistration = document.getElementById("entry-registration");
 let exitRegistration = document.getElementById("exit-registration");
 let balance = document.querySelector("div.balance h2");
@@ -121,3 +119,8 @@ function createFinanceRegistry(id, type, name, value, description, date, tags) {
 
     console.log(id, type, name, value, description, date, tags);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    let bemVindo = document.getElementById("bem-vindo-usuario");
+    bemVindo.innerHTML = `${ null }, seja bem-vindo!`;
+})

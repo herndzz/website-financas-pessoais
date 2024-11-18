@@ -1,59 +1,91 @@
 <!DOCTYPE html>
 <html lang="pt-br"> <!-- Define o idioma do HTML-->
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8"> <!-- Tipo de codificação dos caracteres -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home | Finanças Pessoais</title> <!-- Título exibido na aba superior -->
 
-  <link rel="stylesheet" href="../css/main.css"> <!-- Busca os estilos da página no caminho fornecido-->
-  <script src="./js/main.js" defer></script>
-  <!-- Mesma coisa acima, o atributo defer serve para carregar o arquivo js por último-->
+  <title>Home | Finanças Pessoais</title> <!-- Título da aba -->
+
+  <link rel="stylesheet" href="./main.css"> <!-- Busca a estilização principal na pasta "css" -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> <!-- Estilização Bootstrap -->
+
+  <script src="./main.js" defer></script> <!-- Busca o javascript na pasta "js", o atributo "defer" faz o arquivo ser carregado por último -->
 </head>
 <body>
+  <!-- Cabeçalho -->
   <header>
-    <a href="index.html">
-      <h1>Finanças Pessoais</h1>
-    </a>
+    <a href="./index.html"><h1>Finanças Pessoais</h1></a>
     <nav>
       <ul>
-        <li><a href="pages/login.html" rel="noopener noreferrer">Entrar</a></li>
-        <li><a href="pages/register.html" rel="noopener noreferrer">Cadastrar</a></li>
-        <li><a href="dicas.html" rel="noopener noreferrer">Dicas Financeiras</a></li>
+        <li><a href="./educacao-financeira/educacao-financeira.html" rel="noopener noreferrer">Educação Financeira</a></li>
+        <li><a href="./entrar/entrar.html" rel="noopener noreferrer">Entrar</a></li>
+        <li><a href="./cadastrar/cadastrar.html" rel="noopener noreferrer">Cadastrar</a></li>
+        <div class="header_toggle"><i id="toggleTheme" class="bi bi-sun"></i></div>
       </ul>
     </nav>
   </header>
 
   <main>
+    <!-- Seção de Sobre -->
     <section class="about-us">
       <div class="about-image">
         <img src='assets/image/Image-01.jpg' alt='Woman using digital tablet by Olha Dobosh on 500px.com' />
       </div>
-      <div class="about-content">
+      <div id="about-content" class="about-content">
         <h2>Sobre Nós</h2>
-        <p class="about-text">Este projeto tem como objetivo criar uma plataforma intuitiva para ajudar usuários a
-          gerenciar suas finanças pessoais...</p>
+        <p class="about-text">Este projeto tem como objetivo criar uma plataforma intuitiva para ajudar usuários a gerenciar suas finanças pessoais...</p>
       </div>
     </section>
+
     <hr>
 
-    <section class="functionalities"> <!-- Seção de Funcionalidades -->
+    <!-- Seção de Funcionalidades -->
+    <section class="functionalities">
       <h2>Funcionalidades</h2>
       <div class="modules-list">
-        <div class="module">
-          Cadastro de Despesas e Receitas: Adicione e categorize suas despesas e receitas de forma simples.
-        </div>
-        <div class="module">
-          Gráficos: Visualize o desempenho financeiro através de gráficos.
-        </div>
-        <div class="module">
-          Definição de Metas: Estabeleça metas financeiras e acompanhe o progresso.
-        </div>
-        <div class="module">
-          Relatórios Financeiros: Gere relatórios personalizados por período.
-        </div>
+        <br>
+        <div class="module"> <i class="bi bi-bag-heart"></i> Cadastro de Despesas e Receitas: Adicione e categorize suas
+          despesas e receitas de forma simples.</div>
+        <div class="module"> <i class="bi bi-bar-chart-line"></i> Gráficos: Visualize o desempenho financeiro através de
+          gráficos.</div>
+        <div class="module"> <i class="bi bi-card-checklist"></i> </i>Definição de Metas: Estabeleça metas financeiras e
+          acompanhe o progresso.</div>
+        <div class="module"> <i class="bi bi-clipboard2-pulse-fill"></i> Relatórios Financeiros: Gere relatórios
+          personalizados por período.</div>
       </div>
     </section>
   </main>
 
+  <!-- Rodapé -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Sobre o Finanças Pessoais</h3>
+        <p>O Finanças Pessoais é uma plataforma dedicada a ajudar indivíduos a gerenciar suas finanças de forma eficiente, oferecendo dicas, ferramentas e informações valiosas para um futuro financeiro mais seguro.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="./index.html">Sobre a Empresa</a></li>
+          <li><a href="./entrar/entrar.html">Entrar</a></li>
+          <li><a href="./cadastrar/cadastrar.html">Cadastrar-se</a></li>
+          <li><a href="./educacao-financeira/educacao-financeira.html">Dicas</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Redes Sociais</h3>
+        <ul>
+          <li><a href="https://www.facebook.com">Facebook</a></li>
+          <li><a href="https://www.instagram.com">Instagram</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contato</h3>
+        <p>Email: contato@financaspessoais.com</p>
+        <p>Telefone: (00) 9876-5432</p>
+      </div>
+    </div>
+    <p>&copy; 2024 Finanças Pessoais. Todos os direitos reservados.</p>
+  </footer>
 </body>
 </html>

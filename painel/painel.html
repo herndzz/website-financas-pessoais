@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br"> <!-- Define o idioma do HTML-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dashboard | Finanças Pessoais</title> <!-- Título exibido na aba superior -->
+
+  <link rel="stylesheet" href="../main.css"> <!-- Busca os estilos da página no caminho fornecido-->
+  <link rel="stylesheet" href="./painel.css"> 
+  
+  <script src="../main.js" type="module" defer></script> <!-- Mesma coisa acima, o defer serve para carregar o arquivo js por último-->
+  <script src="./painel.js" type="module" defer></script>
+</head>
+
+<body>
+  <!-- Cabeçalho -->
+  <header>
+    <a href="../index.html"><h1>Finanças Pessoais</h1></a>
+    <nav>
+      <ul>
+        <li><a href="../educacao-financeira/educacao-financeira.html" rel="noopener noreferrer">Educação Financeira</a></li>
+        <li><a href="../entrar/entrar.html" rel="noopener noreferrer">Entrar</a></li>
+        <li><a href="../cadastrar/cadastrar.html" rel="noopener noreferrer">Cadastrar</a></li>
+        <div class="header_toggle"><i id="toggleTheme" class="bi bi-sun"></i></div>
+      </ul>
+      <div class="header_toggle"><i id="toggleTheme" class="bi bi-sun"></i></div>
+    </nav>
+  </header>
+
+  <div class="balance">
+    <h2 id="bem-vindo-usuario"></h2>
+    <p>Total: R$</p>
+    <h2 id="total"></h2>
+  </div>
+
+  <main>
+    <section>
+      <form class="form-finance-registry" action="#">
+        <h4>Tipo de Operação:</h4>
+        <!-- Caixas de seleção(Entrada, Saída) -->
+        <input type="radio" name="operation-type" value="entry" id="radio-entry" checked>
+        <label for="radio-entry">Entrada</label>
+        <input type="radio" name="operation-type" value="exit" id="radio-exit">
+        <label for="radio-exit">Saída</label>
+        <!-- Input para nome -->
+        <div class="form-content">
+          <label for="name-finance-registry">Nome:</label>
+          <input type="text" name="name-finance-registry" id="name-finance-registry">
+        </div>
+        <!-- Input para valor -->
+        <div class="form-content">
+          <label for="value-finance-registry">Valor:</label>
+          <input oninput="this.value = this.value.replace(/[^0-9+.]/g, '')" type="text" name="value-finance-registry" id="value-finance-registry">
+        </div>
+        <!-- Input para descrição -->
+        <div class="form-content">
+          <label for="description-finance-registry">Descrição:</label>
+          <textarea name="description-finance-registry"
+            id="description-finance-registry" placeholder="[Insira a descrição aqui]"></textarea>
+        </div>
+        <!-- Input data -->
+        <div class="form-content">
+          <label for="date-finance-registry">Data:</label>
+          <input type="date" name="date-finance-registry" id="date-finance-registry">
+        </div>
+        <!-- Input tags -->
+        <div class="form-content">
+          <label for="tags-finance-registry">Tags:</label>
+          <input type="text" name="tags-finance-registry" id="tags-finance-registry">
+        </div>
+        <button type="button" id="btn-finance-registry">Adicionar</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Histórico</h2>
+      <div id="last-finance-registry"></div>
+    </section>
+  </main>
+
+  <div id="last-registrations">
+    <h2 style="color: green;">Entradas</h2>
+    <h2 style="color: red;">Saídas</h2>
+    <div id="entry-registration">
+    </div>
+    <div id="exit-registration">
+    </div>
+  </div>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Sobre o Finanças Pessoais</h3>
+        <p>O Finanças Pessoais é uma plataforma dedicada a ajudar indivíduos a gerenciar suas finanças de forma eficiente, oferecendo dicas, ferramentas e informações valiosas para um futuro financeiro mais seguro.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="../index.html">Sobre a Empresa</a></li>
+          <li><a href="../entrar/entrar.html">Entrar</a></li>
+          <li><a href="../cadastrar/cadastrar.html">Registrar-se</a></li>
+          <li><a href="../educacao-financeira/educacao-financeira.html">Dicas</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Redes Sociais</h3>
+        <ul>
+          <li><a href="https://www.facebook.com">Facebook</a></li>
+          <li><a href="https://www.instagram.com">Instagram</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contato</h3>
+        <p>Email: contato@financaspessoais.com</p>
+        <p>Telefone: (31) 9876-5432</p>
+      </div>
+    </div>
+    <p>&copy; 2024 Finanças Pessoais. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>

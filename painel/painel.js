@@ -1,5 +1,9 @@
-// Variáveis
+// ---------- Variáveis ----------
 const logFinanceRegistry = [];
+let ControladorDeLogin = JSON.parse(localStorage.getItem("ControladorDeLogin"));
+let usuario = ControladorDeLogin.usuario;
+
+// console.log(ControladorDeLogin, usuario)
 
 // Variáveis de Elementos HTML
 let btnFinanceRegistry = document.getElementById("btn-finance-registry");
@@ -8,7 +12,7 @@ let exitRegistration = document.getElementById("exit-registration");
 let balance = document.querySelector("div.balance h2");
 let total = 0;
 
-// Classes
+// ---------- Classes ----------
 class FinanceRegistry {
     constructor(id, type, name, value, description, date, tags) {
         this.id = id;
@@ -23,7 +27,7 @@ class FinanceRegistry {
 
 balance.innerHTML = total;
 
-// Eventos
+// ---------- Eventos ----------
 btnFinanceRegistry.addEventListener("click", (e) => {
         e.preventDefault();
     
@@ -52,12 +56,17 @@ btnFinanceRegistry.addEventListener("click", (e) => {
             dateFinanceRegistry,
             tagsFinanceRegistry
         );
-    
+        
         console.log(logFinanceRegistry);
     }
 )
 
-// Functions 
+// ---------- Funções ----------
+document.addEventListener("DOMContentLoaded", () => {
+    let bemVindo = document.getElementById("bem-vindo-usuario");
+    bemVindo.innerHTML = `${usuario.nome}, seja bem-vindo!`;
+})
+
 function createFinanceRegistry(id, type, name, value, description, date, tags) {
     let lastFinanceRegistry = document.getElementById("last-finance-registry");
     
@@ -119,8 +128,3 @@ function createFinanceRegistry(id, type, name, value, description, date, tags) {
 
     console.log(id, type, name, value, description, date, tags);
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    let bemVindo = document.getElementById("bem-vindo-usuario");
-    bemVindo.innerHTML = `${ null }, seja bem-vindo!`;
-})

@@ -60,6 +60,74 @@ class MinhasFinancasIndexedDB {
 }
 
 // ---------- Classes ----------
+class PainelRegistroFinanceiro {
+    constructor(total) {
+        this.total = total;
+    }
+
+    criarRegistroFinanceiro(id, tipoOperacao, nomeOperacao, valor, descricao, data, tags, idHTML) {
+        let lastFinanceRegistry = document.getElementById(idHTML);
+        
+        // Armazenando a criação de elementos HTML em variáveis
+        let div = document.createElement("div");
+        let divContent = document.createElement("div");
+        let h3 = document.createElement("h3");
+        let pName = document.createElement("p");
+        let pValue = document.createElement("p");
+        let pDescription = document.createElement("p");
+        let pDate = document.createElement("p");
+        let pTags = document.createElement("p");
+        let btnDelete = document.createElement("button");
+    
+        // Adicionando as informações aos elementos
+        h3.textContent = `Registro #${id} - ${tipoOperacao === "entry" ? "Entrada" : "Saída"}`;
+        pName.textContent = `Nome: ${nomeOperacao}`;
+        pValue.textContent = `Valor: R$ ${valor}`;
+        pDescription.textContent = `Descrição: ${descricao}`;
+        pDate.textContent = `Data: ${data}`;
+        pTags.textContent = `Tags: ${tags}`;
+        btnDelete.textContent = "Remover";
+    
+        divContent.appendChild(h3);
+        divContent.appendChild(pName);
+        divContent.appendChild(pValue);
+        divContent.appendChild(pDescription);
+        divContent.appendChild(pDate);
+        divContent.appendChild(pTags);
+        divContent.appendChild(btnDelete);
+    
+        // Função do botão de remover
+        btnDelete.addEventListener("click", () => {
+            if (type == "entry") {
+                total -= Number(value);
+                balance.textContent = total;
+            } else if (type == "exit") {
+                total += Number(value);
+                balance.textContent = total;
+            }
+            btnDelete.parentElement.remove();
+        })
+    
+        div.appendChild(divContent);
+    
+        lastFinanceRegistry.prepend(div);
+    
+        if (type == "entry") {
+            entryRegistration.prepend(lastFinanceRegistry.cloneNode(true));
+            total += Number(valor);
+        } else if (type == "exit") {
+            exitRegistration.prepend(lastFinanceRegistry.cloneNode(true));
+            total -= Number(valor)
+        } else {
+            console.log(Error("Erro ao Criar Registro"));
+        }
+    
+        balance.textContent = total;
+    
+        console.log(id, tipoOperacao, nomeOperacao, valor, descricao, data, tags, idHTML);
+    }
+}
+
 /**
  * Gerenciamento do estado de login do usuário.
  */
@@ -75,23 +143,23 @@ class ControladorDeLogin {
          * Mostra os dados do usuário logado atual.
          * @type {Object|null}
          */
-        this.usuarioAtual = null;
+        this.usuario = null;
 
-        function usuarioEntrou() {
-            this.usuarioLogado = true;
-            console.log("Seu cu")
-        }
+    }
 
-        function usuarioSaiu() {
-            this.usuarioLogado = false;
-        }
+    usuarioEntrou() {
+        this.usuarioLogado = true;
+    }
 
-        /**
-        * @param {Object} usuario - Objeto contendo os dados do usuário.
-        */
-        function usuarioLogado(usuario) {
-            this.usuarioAtual = usuario;
-        }
+    usuarioSaiu() {
+        this.usuarioLogado = false;
+    }
+
+    /**
+    * @param {Object} usr - Objeto contendo os dados do usuário.
+    */
+    usuarioAtual(usr) {
+        this.usuario = usr;
     }
 }
 

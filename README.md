@@ -19,7 +19,7 @@ Este projeto tem como objetivo criar uma plataforma intuitiva para ajudar usuár
 
 # Organizacão do Código
 Padrão de pastas: Estruturação por Página [(Feature-Based Structure)](https://sahilali.medium.com/5-commonly-used-folder-structure-in-web-development-68bdcb2d313e)  
-Escrita do código: [CONVENTIONS.md](./CONVENTIONS.md)     
+Convenções código: [CONVENTIONS.md](./CONVENTIONS.md)     
 Idioma padrão de escrita: português
 
 ## Como Usar?

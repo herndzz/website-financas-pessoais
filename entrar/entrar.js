@@ -1,18 +1,17 @@
-import MinhasFinancasIndexedDB from "../main.js";
-
-// console.log("SCRIPT OK");
+import { GerenciadorDeSessao, MinhasFinancasIndexedDB} from "../main.js";
 
 // ---------- Variáveis Principais ----------
 let MinhasFinancasDB = new MinhasFinancasIndexedDB();
-let ControladorDeLogin = JSON.parse(localStorage.getItem("ControladorDeLogin"));
 let responseKaptcha = 0;
 let randomNumberKaptcha = document.getElementById("random-number-kaptcha");
 let LoginBtn = document.getElementById("login-btn");
+let sessao = GerenciadorDeSessao.restaurarSessao();
 
-ControladorDeLogin.usuarioLogado = true;
-console.log(ControladorDeLogin)
+MinhasFinancasDB.abrirBancoDeDados();
 
-MinhasFinancasDB.abrirBancoDeDados()
+if (sessao.logado) {
+    window.location.href = "../painel/painel.html";
+}
 
 // ---------- Eventos ----------
 document.addEventListener("DOMContentLoaded", () => {
@@ -44,13 +43,8 @@ LoginBtn.addEventListener("click", async (e) => {
         console.log(usuario, usuario.senha)
         
         if (usuario.email === email && usuario.senha === password) {            
-            ControladorDeLogin.usuarioLogado = true;
-            ControladorDeLogin.usuario = usuario;
-            
-            console.log(ControladorDeLogin)
-            console.log("Login realizado com sucesso!");
-            
-            localStorage.setItem("ControladorDeLogin", JSON.stringify(ControladorDeLogin));
+            console.log("Login realizado com sucesso!");    
+            sessao.login(usuario);        
             window.open('../painel/painel.html', '_blank');
         } else {
             loginError.innerText += "* Email ou senha incorretos.\n";
@@ -60,6 +54,4 @@ LoginBtn.addEventListener("click", async (e) => {
         loginError.innerText += "* Erro ao buscar usuário. Tente novamente mais tarde.\n";
         console.error(erro);
     }
-    
-    //console.log("Ok");
 });

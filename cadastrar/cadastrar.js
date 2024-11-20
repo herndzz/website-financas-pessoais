@@ -1,4 +1,4 @@
-import MinhasFinancasIndexedDB from "../main.js";
+import {MinhasFinancasIndexedDB} from "../main.js";
 
 let MinhasFinancasDB = new MinhasFinancasIndexedDB();
 MinhasFinancasDB.abrirBancoDeDados()

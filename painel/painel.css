@@ -57,6 +57,14 @@
     font-size: 1em;
 }
 
+#conta i {
+    font-size: 2rem;
+}
+
+#conta i:hover {
+    cursor: pointer;
+}
+
 .form-finance-registry button:hover {
     background-color: #0056b3;
 }

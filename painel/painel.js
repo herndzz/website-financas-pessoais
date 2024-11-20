@@ -1,13 +1,14 @@
 import { GerenciadorDeSessao } from "../main.js";
 
 // ------------------ Variáveis de Elementos HTML ------------------
+let conta = document.getElementById("conta");
 let btnFinanceRegistry = document.getElementById("btn-finance-registry");
 let entryRegistration = document.getElementById("entry-registration");
 let exitRegistration = document.getElementById("exit-registration");
 let balance = document.getElementById("total");
 let sessao = GerenciadorDeSessao.restaurarSessao();
 
-if (!sessao.logado) {
+if(!sessao.logado) {
     window.location.href = "../entrar/entrar.html";
 } else {
     console.log(`Bem-vindo, ${sessao.usuario.nome}`);
@@ -126,11 +127,15 @@ class PainelRegistroFinanceiro {
     }
 }
 
-
 // ------------------- Inicialização de Objetos -------------------
 let painelRegistroFinanceiro = new PainelRegistroFinanceiro(0, balance, entryRegistration, exitRegistration);
 
 // ------------------- Eventos -------------------
+conta.addEventListener("click", () => {
+    sessao.logout();
+    window.location.href = "../index.html";
+})
+
 btnFinanceRegistry.addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -141,15 +146,6 @@ btnFinanceRegistry.addEventListener("click", (e) => {
     let inputData = document.getElementById("date-finance-registry").value;
     let inputTags = document.getElementById("tags-finance-registry").value;
 
-    // historicoRegistros.push(new RegistroFinanceiro(
-    //     inputRadio,
-    //     inputNome,
-    //     inputValor,
-    //     inputDescricao,
-    //     inputData,
-    //     inputTags
-    // ));
-
     painelRegistroFinanceiro.criarRegistroFinanceiro(new RegistroFinanceiro(
         inputRadio,
         inputNome,
@@ -158,13 +154,9 @@ btnFinanceRegistry.addEventListener("click", (e) => {
         inputData,
         inputTags
     ));
+});
 
-    // console.log(historicoRegistros);
-}
-)
-
-// ------------------- Funções -------------------
 document.addEventListener("DOMContentLoaded", () => {
     let bemVindo = document.getElementById("bem-vindo-usuario");
     bemVindo.innerHTML = `${sessao.usuario.nome}, seja bem-vindo!`;
-})
+});

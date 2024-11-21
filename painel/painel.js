@@ -63,7 +63,7 @@ class PainelRegistroFinanceiro {
     constructor(total, balanceElement, entryRegistryElement, exitRegistryElement) {
         this.total = total;
         this.balanceElement = balanceElement; 
-        this.entryRegistryElement = entryRegistryElement; 
+        this.entryRegistryElement = entryRegistryElement;
         this.exitRegistryElement = exitRegistryElement; 
         this.atualizarSaldo();
     }

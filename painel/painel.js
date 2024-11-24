@@ -1,14 +1,14 @@
 import { GerenciadorDeSessao } from "../main.js";
 
 // ------------------ Variáveis de Elementos HTML ------------------
-let conta = document.getElementById("conta");
+let conta = document.getElementById("conta"); // getElementById serve para pegar um elemento pelo ID
 let btnFinanceRegistry = document.getElementById("btn-finance-registry");
 let entryRegistration = document.getElementById("entry-registration");
 let exitRegistration = document.getElementById("exit-registration");
 let balance = document.getElementById("total");
 let sessao = GerenciadorDeSessao.restaurarSessao();
 
-if(!sessao.logado) {
+if (!sessao.logado) {
     window.location.href = "../entrar/entrar.html";
 } else {
     console.log(`Bem-vindo, ${sessao.usuario.nome}`);
@@ -62,9 +62,9 @@ class PainelRegistroFinanceiro {
      */
     constructor(total, balanceElement, entryRegistryElement, exitRegistryElement) {
         this.total = total;
-        this.balanceElement = balanceElement; 
+        this.balanceElement = balanceElement;
         this.entryRegistryElement = entryRegistryElement;
-        this.exitRegistryElement = exitRegistryElement; 
+        this.exitRegistryElement = exitRegistryElement;
         this.atualizarSaldo();
     }
 
@@ -84,7 +84,15 @@ class PainelRegistroFinanceiro {
             return;
         }
 
+        if (isNaN(valor) || valor <= 0) {
+            console.error("Valor inválido:", valor);
+            return;
+        }
+
         const divContent = document.createElement("div");
+        const table = document.createElement("table");
+        const tbody = document.createElement("tbody");
+
         const h3 = document.createElement("h3");
         const pName = document.createElement("p");
         const pValue = document.createElement("p");
@@ -93,32 +101,78 @@ class PainelRegistroFinanceiro {
         const pTags = document.createElement("p");
         const btnDelete = document.createElement("button");
 
-        h3.textContent = `Registro #${id} - ${tipoOperacao === "entry" ? "Entrada" : "Saída"}`;
-        pName.textContent = `Nome: ${nomeOperacao}`;
-        pValue.textContent = `Valor: R$ ${Number(valor).toFixed(2)}`;
-        pDescription.textContent = `Descrição: ${descricao}`;
-        pDate.textContent = `Data: ${data}`;
-        pTags.textContent = `Tags: ${tags}`;
+        h3.textContent = `#${id} - ${tipoOperacao === "entry" ? "Entrada" : "Saída"}`;
+        pName.textContent = `${nomeOperacao}`;
+        pValue.textContent = `R$ ${Number(valor).toFixed(2)}`;
+        pDescription.textContent = `${descricao}`;
+        pDate.textContent = `${data}`;
+        pTags.textContent = `${tags}`;
         btnDelete.textContent = "Remover";
 
+        const rows = [
+            { label: "Nome", value: pName.textContent },
+            { label: "Valor", value: pValue.textContent },
+            { label: "Descrição", value: pDescription.textContent },
+            { label: "Data", value: pDate.textContent },
+            { label: "Tags", value: pTags.textContent }
+        ];
+
+        rows.forEach(row => {
+            const tr = document.createElement("tr");
+            const tdLabel = document.createElement("td");
+            const tdValue = document.createElement("td");
+
+            tdLabel.textContent = row.label;
+            tdValue.textContent = row.value;
+
+            tr.appendChild(tdLabel);
+            tr.appendChild(tdValue);
+            tbody.appendChild(tr);
+        });
+
+        table.appendChild(tbody);
+        divContent.appendChild(h3);
+        divContent.appendChild(table);
+        divContent.appendChild(btnDelete);
+
         btnDelete.addEventListener("click", () => {
-            divContent.remove(); 
+            divContent.remove();
             if (tipoOperacao === "entry") {
                 this.total -= valor;
             } else if (tipoOperacao === "exit") {
                 this.total += valor;
             }
-            this.atualizarSaldo(); 
+            this.atualizarSaldo();
+        });
+
+        if (tipoOperacao === "entry") {
+            this.total += valor;
+            this.entryRegistryElement.prepend(divContent);
+        } else if (tipoOperacao === "exit") {
+            this.total -= valor;
+            this.exitRegistryElement.prepend(divContent);
+        } else {
+            console.error("Tipo de operação inválido:", tipoOperacao);
+        }
+
+        btnDelete.addEventListener("click", () => {
+            divContent.remove();
+            if (tipoOperacao === "entry") {
+                this.total -= valor;
+            } else if (tipoOperacao === "exit") {
+                this.total += valor;
+            }
+            this.atualizarSaldo();
         });
 
         divContent.append(h3, pName, pValue, pDescription, pDate, pTags, btnDelete);
 
         if (tipoOperacao === "entry") {
             this.total += valor;
-            this.entryRegistryElement.prepend(divContent); 
+            this.entryRegistryElement.prepend(divContent);
         } else if (tipoOperacao === "exit") {
             this.total -= valor;
-            this.exitRegistryElement.prepend(divContent); 
+            this.exitRegistryElement.prepend(divContent);
         } else {
             console.error("Tipo de operação inválido:", tipoOperacao);
         }

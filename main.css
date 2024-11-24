@@ -65,6 +65,11 @@ header {
     height: 5rem;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+}
+
 header a {
     text-decoration: none;
     color: var(--cor-secundaria);
@@ -77,7 +82,7 @@ header nav a {
     padding: .4rem;
     font-weight: bold;
     border-radius: 8px;
-    color: var(--cor-secundaria);
+    color: var(--cor-secundaria); 
     transition: .5s;
 }
 
@@ -102,7 +107,7 @@ header li {
 header h1 {
     font-size: 2rem;
     margin: 0;
-    background: radial-gradient(circle at -20.71% 50%, #f2ff7c 0, #deff80 8.33%, #c8fe84 16.67%, #b2f888 25%, #9bef8c 33.33%, #84e58f 41.67%, #6cd890 50%, #55cb91 58.33%, #3fc091 66.67%, #26b693 75%, #00ad94 83.33%, #00a696 91.67%, #00a099 100%);
+    background-image: linear-gradient(230deg, #b4f2a0 0, #a1ec9c 16.67%, #89e397 33.33%, #6cd890 50%, #49cd8a 66.67%, #10c488 83.33%, #00bd88 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

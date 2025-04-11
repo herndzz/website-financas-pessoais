@@ -5,6 +5,16 @@ main {
     flex-direction: column;
 }
 
+.dicas-financeiras-titulo {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .dicas-financeiras {
     max-width: 1400px;
     margin: 0 auto;
@@ -24,6 +34,13 @@ main {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
 }
+
+.dicas-financeiras-titulo h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
 
 .dica-financeira h3 {
     font-size: 2rem;
